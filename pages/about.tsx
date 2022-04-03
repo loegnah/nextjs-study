@@ -1,13 +1,13 @@
 import { NextPage } from "next";
 import NavBar from "../components/NavBar";
 
-const Home: NextPage = () => {
+const about: NextPage = () => {
   return (
     <div>
       <NavBar />
-      <h1>Home</h1>
+      <h1>about</h1>
     </div>
   );
 };
 
-export default Home;
+export default about;
