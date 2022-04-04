@@ -1,20 +1,25 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "./NavBar.module.css"
 
 const NavBar: NextPage = () => {
   const router = useRouter();
   return (
-    <nav className={styles.nav}>
+    <nav>
       <Link href="/">
-        <a style={{ color: router.pathname === "/" ? "red" : "blue" }}>Home</a>
+        <a className={router.pathname === "/" ? "active" : ""}>Home</a>
       </Link>
       <Link href="/about">
-        <a style={{ color: router.pathname === "/about" ? "red" : "blue" }}>
-          About
-        </a>
+        <a className={router.pathname === "/about" ? "active" : ""}>About</a>
       </Link>
+      <style jsx>{`
+        a {
+          text-decoration: none;
+        }
+        .active {
+          color: tomato;
+        }
+      `}</style>
     </nav>
   );
 };

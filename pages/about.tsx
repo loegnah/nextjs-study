@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-import NavBar from "../components/NavBar";
+import Seo from "../components/Seo";
 
 const about: NextPage = () => {
   return (
     <div>
-      <NavBar />
+      <Seo title={"About"} />
       <h1>about</h1>
     </div>
   );
