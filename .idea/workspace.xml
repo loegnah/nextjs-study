@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fb38c2b-9134-41c9-b330-76e252cae34f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/styles/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +40,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
     "prettierjs.PrettierConfiguration.Package": "/Users/loegnah/.nvm/versions/node/v14.17.6/lib/node_modules/prettier",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
     "ts.external.directory.path": "/Users/loegnah/code/nextjs-intro/node_modules/typescript/lib"
   }
 }]]></component>
@@ -58,7 +55,7 @@
       <workItem from="1648987741622" duration="1716000" />
       <workItem from="1648989706677" duration="7428000" />
       <workItem from="1649119049214" duration="643000" />
-      <workItem from="1650785394347" duration="1101000" />
+      <workItem from="1650785394347" duration="3465000" />
     </task>
     <servers />
   </component>
