@@ -1,5 +1,4 @@
-import { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { NextPage, GetServerSideProps } from "next";
 import Seo from "../components/Seo";
 
 type MovieData = {
@@ -8,35 +7,29 @@ type MovieData = {
   poster_path: string;
 };
 
-const Home: NextPage = () => {
-  const [movies, setMovies] = useState<MovieData[]>([]);
+interface Props {
+  results: MovieData[];
+}
 
-  useEffect(() => {
-    (async () => {
-      const { results } = await (await fetch("/api/movie")).json();
-      setMovies(results);
-    })();
-  }, []);
-
+const Home: NextPage<Props> = ({ results }) => {
   return (
     <div className="container">
       <Seo title={"Home"} />
-      {!movies ? (
-        <h4>Loading...</h4>
-      ) : (
-        movies.map((movie) => (
-          <div className="movie" key={movie.id}>
-            <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-            <h4>{movie.original_title}</h4>
-          </div>
-        ))
-      )}
+      {results?.map((movie) => (
+        <div className="movie" key={movie.id}>
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+          <h4>{movie.original_title}</h4>
+        </div>
+      ))}
       <style jsx>{`
         .container {
           display: grid;
           grid-template-columns: 1fr 1fr;
           padding: 20px;
           gap: 20px;
+        }
+        .movie {
+          cursor: pointer;
         }
         .movie img {
           max-width: 100%;
@@ -56,4 +49,16 @@ const Home: NextPage = () => {
   );
 };
 
+const getServerSideProps: GetServerSideProps = async () => {
+  const { results } = await (
+    await fetch("http://localhost:3000/api/movie")
+  ).json();
+  return {
+    props: {
+      results,
+    },
+  };
+};
+
 export default Home;
+export { getServerSideProps };
