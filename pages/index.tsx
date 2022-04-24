@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import Seo from "../components/Seo";
 
 const Home: NextPage = () => {
