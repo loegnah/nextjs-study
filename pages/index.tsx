@@ -16,16 +16,7 @@ interface Props {
 const Home: NextPage<Props> = ({ results }) => {
   const router = useRouter();
   const onClick = (id: number, title: string) => {
-    router.push(
-      {
-        pathname: `/movies/${id}`,
-        query: {
-          id,
-          title,
-        },
-      },
-      `/movies/${id}`
-    );
+    router.push(`/movies/${title}/${id}`);
   };
 
   return (
@@ -39,16 +30,7 @@ const Home: NextPage<Props> = ({ results }) => {
         >
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h4>
-            <Link
-              href={{
-                pathname: `/movies/${movie.id}`,
-                query: {
-                  id: movie.id,
-                  title: movie.original_title,
-                },
-              }}
-              as={`/movies/${movie.id}`}
-            >
+            <Link href={`/movies/${movie.original_title}/${movie.id}`}>
               <a>{movie.original_title}</a>
             </Link>
           </h4>
