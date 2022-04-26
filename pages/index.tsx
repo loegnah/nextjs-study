@@ -1,5 +1,7 @@
 import { NextPage, GetServerSideProps } from "next";
+import Link from "next/link";
 import Seo from "../components/Seo";
+import { useRouter } from "next/router";
 
 type MovieData = {
   id: number;
@@ -12,13 +14,44 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ results }) => {
+  const router = useRouter();
+  const onClick = (id: number, title: string) => {
+    router.push(
+      {
+        pathname: `/movies/${id}`,
+        query: {
+          id,
+          title,
+        },
+      },
+      `/movies/${id}`
+    );
+  };
+
   return (
     <div className="container">
       <Seo title={"Home"} />
       {results?.map((movie) => (
-        <div className="movie" key={movie.id}>
+        <div
+          className="movie"
+          key={movie.id}
+          onClick={() => onClick(movie.id, movie.original_title)}
+        >
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
-          <h4>{movie.original_title}</h4>
+          <h4>
+            <Link
+              href={{
+                pathname: `/movies/${movie.id}`,
+                query: {
+                  id: movie.id,
+                  title: movie.original_title,
+                },
+              }}
+              as={`/movies/${movie.id}`}
+            >
+              <a>{movie.original_title}</a>
+            </Link>
+          </h4>
         </div>
       ))}
       <style jsx>{`
